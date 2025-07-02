@@ -1,0 +1,17 @@
+[project]
+name = "plwidgets"
+version = "0.1.0"
+description = "Custom PySide6 UI widgets for Python applications"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Pierre-Lou Guilloré", email = "example@example.com"}]
+dependencies = ["PySide6>=6.3"]
+requires-python = ">=3.7"
+
+[project.urls]
+Homepage = "https://github.com/ThePeterWolf/pl-widgets"
+Documentation = "https://github.com/ThePeterWolf/pl-widgets#readme"
+
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
