@@ -9,7 +9,7 @@ class PlLoadingIndicator(QtWidgets.QWidget):
     def __init__(self, parent=None):
         super().__init__(parent)
         self._angle = 0
-        self._color = QtGui.QColor("#3498db")
+        self._color = QtGui.QColor("#5683d1")
         self._thickness = 4
         self._speed = 2  # Degrees per tick
 

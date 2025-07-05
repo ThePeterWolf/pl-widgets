@@ -12,6 +12,8 @@ from .pl_flag import PLFlag
 from .pl_slider import PLSlider
 from .pl_video_player import PLVideoPlayer
 from .pl_loading_indicator import PlLoadingIndicator
+from .pl_form_widget import PlFormWidget
+from .pl_check_button_group import PlCheckButtonGroup
 from typing import Type
 
 
@@ -32,4 +34,6 @@ class PlWidgets:
     PLSlider: Type[PLSlider] = PLSlider
     PLVideoPlayer: Type[PLVideoPlayer] = PLVideoPlayer
     PlLoadingIndicator: Type[PlLoadingIndicator] = PlLoadingIndicator
+    PlFormWidget: Type[PlFormWidget] = PlFormWidget
+    PlCheckButtonGroup: Type[PlCheckButtonGroup] = PlCheckButtonGroup
 

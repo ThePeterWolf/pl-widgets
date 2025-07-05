@@ -6,12 +6,18 @@ class PLFlag(QtWidgets.QWidget):
         super().__init__(parent)
 
         self._title_height = 24
+        self._title = title
         self._radius = 4
         self._topColor = QtGui.QColor("#2c2f33")
         self._bottomColor = QtGui.QColor("#2c2f33")
         self._borderColor = QtGui.QColor("#44484d")
+        self._alignment = QtCore.Qt.AlignCenter
         self.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         self.setMinimumHeight(60)
+        self._layout = QtWidgets.QVBoxLayout()
+        self._layout.setContentsMargins(10, 10, 10, 10)
+        self._layout.addSpacerItem(QtWidgets.QSpacerItem(0, self._title_height))
+        super().setLayout(self._layout)
 
     def paintEvent(self, event):
         painter = QtGui.QPainter(self)
@@ -37,19 +43,6 @@ class PLFlag(QtWidgets.QWidget):
         painter.setPen(QtCore.Qt.NoPen)
         painter.drawPath(top_path)
 
-        # bottom_rect = QtCore.QRect(0, half_height, rect.width(), rect.height() - half_height)
-        # bottom_path = QtGui.QPainterPath()
-        # bottom_path.moveTo(0, half_height)
-        # bottom_path.lineTo(0, rect.height() - radius)
-        # bottom_path.quadTo(0, rect.height(), radius, rect.height())
-        # bottom_path.lineTo(rect.width() - radius, rect.height())
-        # bottom_path.quadTo(rect.width(), rect.height(), rect.width(), rect.height() - radius)
-        # bottom_path.lineTo(rect.width(), half_height)
-        # bottom_path.closeSubpath()
-
-        # painter.setBrush(self._bottomColor)
-        # painter.drawPath(bottom_path)
-
         pen = QtGui.QPen(self._borderColor)
         pen.setWidth(1)
         painter.setPen(pen)
@@ -59,8 +52,28 @@ class PLFlag(QtWidgets.QWidget):
         global_rect.adjust(1, 1, -1, -1)
         painter.drawRoundedRect(global_rect, self._radius, self._radius)
 
+        # Draw centered title
+        painter.setPen(QtGui.QColor("white"))
+        font = painter.font()
+        # font.setBold(True)
+        font.setPointSize(10)
+        painter.setFont(font)
+        text_rect = QtCore.QRectF(0, 0, rect.width(), half_height)
+        
+        if self._alignment == QtCore.Qt.AlignLeft:
+            text_rect.adjust(10, 4, -10, 0)
+        
+        painter.drawText(text_rect, self._alignment, self._title)
+
         painter.end()
 
+    def setLayout(self, layout):
+        self._layout.addLayout(layout)
 
+    def setLabelAlignement(self, alignement: QtCore.Qt.AlignmentFlag):
+
+        self._alignment = alignement
+        
+        self.update()
 
 

@@ -38,7 +38,6 @@ class PlTitleBar(QtWidgets.QWidget):
         [btn.setObjectName("PLtitleBarButton") for btn in [self.minimizeButton, self.maximizeButton]]
         self.closeButton = QtWidgets.QToolButton()
         self.closeButton.setIcon(QtGui.QIcon(resourceLoader.getIconPath("close_cross_128x128.png")))
-        print(resourceLoader.getIconPath("close_cross_128x128.png"))
         self.closeButton.setObjectName("PLtitleBarCloseButton")
 
         buttonWidth = self.titleBarHeight + self.titleBarHeight/3

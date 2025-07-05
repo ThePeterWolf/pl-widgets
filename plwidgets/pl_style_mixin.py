@@ -1,6 +1,7 @@
 import os
 import re
 from typing import Union
+from PySide6 import QtGui
 
 
 class PlStyleMixin:
@@ -82,3 +83,21 @@ class PlStyleMixin:
         """
         parts = re.split(r"[-_]", name)
         return parts[0] + ''.join(p.title() for p in parts[1:])
+
+    def getColor(self, prop: str, fallback: QtGui.QColor) -> QtGui.QColor:
+        val = self.property(prop)
+        if isinstance(val, QtGui.QColor):
+            return val
+        elif isinstance(val, str):
+            c = QtGui.QColor(val)
+            if c.isValid():
+                return c
+        return fallback
+
+    def getInt(self, prop: str, fallback: int) -> int:
+        val = self.property(prop)
+        if isinstance(val, int):
+            return val
+        elif isinstance(val, str) and val.isdigit():
+            return int(val)
+        return fallback
