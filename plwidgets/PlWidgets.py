@@ -14,6 +14,7 @@ from .pl_video_player import PLVideoPlayer
 from .pl_loading_indicator import PlLoadingIndicator
 from .pl_form_widget import PlFormWidget
 from .pl_check_button_group import PlCheckButtonGroup
+from .pl_round_check_button import PlRoundCheckButton
 from typing import Type
 
 
@@ -36,4 +37,5 @@ class PlWidgets:
     PlLoadingIndicator: Type[PlLoadingIndicator] = PlLoadingIndicator
     PlFormWidget: Type[PlFormWidget] = PlFormWidget
     PlCheckButtonGroup: Type[PlCheckButtonGroup] = PlCheckButtonGroup
+    PlRoundCheckButton: Type[PlRoundCheckButton] = PlRoundCheckButton
 
