@@ -1,7 +1,8 @@
 from PySide6 import QtWidgets, QtCore, QtGui
+from .pl_style_mixin import PlStyleMixin
 
 
-class PlLoadingIndicator(QtWidgets.QWidget):
+class PlLoadingIndicator(PlStyleMixin, QtWidgets.QWidget):
     """
     A simple animated circular loading spinner.
     """

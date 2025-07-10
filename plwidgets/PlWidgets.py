@@ -8,7 +8,7 @@ from .pl_line_edit import PlLineEdit
 from .pl_search_bar import PlSearchBar
 from .pl_push_button import PlPushButton
 from .pl_combo_box import PlComboBox
-from .pl_flag import PLFlag
+from .pl_flag import PlFlag
 from .pl_slider import PLSlider
 from .pl_video_player import PLVideoPlayer
 from .pl_loading_indicator import PlLoadingIndicator
@@ -16,6 +16,7 @@ from .pl_form_widget import PlFormWidget
 from .pl_check_button_group import PlCheckButtonGroup
 from .pl_round_check_button import PlRoundCheckButton
 from .pl_overlay_dialog import PlOverlayDialog
+from .pl_tab_widget import PlTabWidget
 from typing import Type
 
 
@@ -32,7 +33,7 @@ class PlWidgets:
     PlSearchBar: Type[PlSearchBar] = PlSearchBar
     PlPushButton: Type[PlPushButton] = PlPushButton
     PlComboBox: Type[PlComboBox] = PlComboBox
-    PLFlag: Type[PLFlag] = PLFlag
+    PlFlag: Type[PlFlag] = PlFlag
     PLSlider: Type[PLSlider] = PLSlider
     PLVideoPlayer: Type[PLVideoPlayer] = PLVideoPlayer
     PlLoadingIndicator: Type[PlLoadingIndicator] = PlLoadingIndicator
@@ -40,4 +41,5 @@ class PlWidgets:
     PlCheckButtonGroup: Type[PlCheckButtonGroup] = PlCheckButtonGroup
     PlRoundCheckButton: Type[PlRoundCheckButton] = PlRoundCheckButton
     PlOverlayDialog: Type[PlOverlayDialog] = PlOverlayDialog
+    PlTabWidget: Type[PlTabWidget] = PlTabWidget
 

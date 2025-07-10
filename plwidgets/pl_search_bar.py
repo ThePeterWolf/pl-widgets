@@ -75,67 +75,6 @@ class PlSearchBar(PlStyleMixin, QtWidgets.QWidget):
         painter = QtGui.QPainter(self)
         painter.setRenderHint(QtGui.QPainter.Antialiasing)
 
-        total_rect = self.rect().adjusted(1, 1, -1, -1)
-        radius = self._radius
-        btn_width = self._search_btn.width()
-
-        # --- Text input background (arrondi à gauche uniquement)
-        left_rect = QtCore.QRectF(
-            total_rect.x(),
-            total_rect.y(),
-            total_rect.width() - btn_width,
-            total_rect.height()
-        )
-
-        path_left = QtGui.QPainterPath()
-        path_left.moveTo(left_rect.topRight())
-        path_left.lineTo(left_rect.topLeft() + QtCore.QPointF(radius, 0))
-        path_left.quadTo(left_rect.topLeft(), left_rect.topLeft() + QtCore.QPointF(0, radius))
-        path_left.lineTo(left_rect.bottomLeft() + QtCore.QPointF(0, -radius))
-        path_left.quadTo(left_rect.bottomLeft(), left_rect.bottomLeft() + QtCore.QPointF(radius, 0))
-        path_left.lineTo(left_rect.bottomRight())
-        path_left.closeSubpath()
-
-        # --- Button background (arrondi à droite uniquement)
-        right_rect = QtCore.QRectF(
-            total_rect.right() - btn_width,
-            total_rect.y(),
-            btn_width,
-            total_rect.height()
-        )
-
-        path_right = QtGui.QPainterPath()
-        path_right.moveTo(right_rect.topLeft())
-        path_right.lineTo(right_rect.topRight() - QtCore.QPointF(radius, 0))
-        path_right.quadTo(right_rect.topRight(), right_rect.topRight() + QtCore.QPointF(0, radius))
-        path_right.lineTo(right_rect.bottomRight() + QtCore.QPointF(0, -radius))
-        path_right.quadTo(right_rect.bottomRight(), right_rect.bottomRight() - QtCore.QPointF(radius, 0))
-        path_right.lineTo(right_rect.bottomLeft())
-        path_right.closeSubpath()
-
-        # Couleur d’arrière-plan
-        painter.setPen(QtGui.QPen(self._focusBorderColor if self._hasFocus else self._borderColor, 1.5))
-        painter.setBrush(self._bgColor)
-
-        # Dessiner les deux moitiés
-        painter.setPen(QtCore.Qt.NoPen)
-        painter.setBrush(self._bgColor)
-        painter.drawPath(path_left)
-
-        painter.setBrush(self._bgColorRight)
-        painter.drawPath(path_right)
-
-        border_color = self._focusBorderColor if self._hasFocus else self._borderColor
-        painter.setPen(QtGui.QPen(border_color, 1.5))
-        painter.setBrush(QtCore.Qt.NoBrush)
-        painter.drawRoundedRect(total_rect, radius, radius)
-
-
-
-    def paintEvent(self, event):
-        painter = QtGui.QPainter(self)
-        painter.setRenderHint(QtGui.QPainter.Antialiasing)
-
         rect = self.rect().adjusted(1, 1, -1, -1)
         radius = self._radius
         btn_width = self._search_btn.width()
@@ -163,7 +102,6 @@ class PlSearchBar(PlStyleMixin, QtWidgets.QWidget):
         painter.setPen(QtGui.QPen(border_color, 1.5))
         painter.setBrush(QtCore.Qt.NoBrush)
         painter.drawRoundedRect(rect, radius, radius)
-
 
     def mousePressEvent(self, event):
         self._line_edit.setFocus()

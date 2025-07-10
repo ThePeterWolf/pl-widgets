@@ -37,8 +37,7 @@ class PlCheckBox(PlStyleMixin, QtWidgets.QWidget):
             parent (QWidget, optional): The parent widget. Defaults to None.
         """
         super().__init__(parent)
-        self.setFixedSize(60, 30)
-
+        self.setFixedSize(40, 20)
         self._checked = False
         self._handle_position = 2
 
