@@ -6,9 +6,8 @@
 
 ## 📦 Installation
 
-```bash
-pip install plwidgets
-```
+This package is not yet available on PyPI.
+You can clone this repository and add it to your PYTHONPATH manually.
 
 > Note: You must have `PySide6` installed. If not:
 
