@@ -85,7 +85,7 @@ PlCheckBox {
 ---
 ## 📚 API Reference
 
-See the [docs](./docs/README.md) for detailed information on each widget.
+See the [docs (WIP!)](./docs/README.md) for detailed information on each widget.
 
 ---
 
