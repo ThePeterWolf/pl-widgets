@@ -4,6 +4,12 @@
 
 ---
 
+## 🖼 UI Preview
+
+![Demo interface](assets/preview.png)
+
+---
+
 ## 📦 Installation
 
 This package is not yet available on PyPI.
