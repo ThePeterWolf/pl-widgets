@@ -41,6 +41,7 @@ class PlCheckBox(PlStyleMixin, QtWidgets.QWidget):
         self._checked = False
         self._handle_position = 2
 
+        # Style properties
         self._backgroundColor = QtGui.QColor("#7d7e82")
         self._checkedBackgroundColor = QtGui.QColor("#5683d1")
         self._handleColor = QtGui.QColor("#bbbcbe")
@@ -122,6 +123,8 @@ class PlCheckBox(PlStyleMixin, QtWidgets.QWidget):
 
     handle_position = QtCore.Property(int, _get_handle_position, _set_handle_position)
 
+    # === Style & Property Interface ===
+    
     @QtCore.Property(bool)
     def checked(self) -> bool:
         return self._checked

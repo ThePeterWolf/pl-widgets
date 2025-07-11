@@ -32,7 +32,7 @@ class PlComboBox(QtWidgets.QComboBox):
     def __init__(self, parent: QtWidgets.QWidget = None) -> None:
         super().__init__(parent)
         self.setCursor(QtCore.Qt.PointingHandCursor)
-        self.setView(QtWidgets.QListView())  # for more control
+        self.setView(QtWidgets.QListView())
 
         self.setEditable(False)
         self.setInsertPolicy(QtWidgets.QComboBox.NoInsert)
@@ -40,12 +40,12 @@ class PlComboBox(QtWidgets.QComboBox):
         self.setContentsMargins(0, 0, 0, 0)
         self.setFixedHeight(24)
 
+        # Style properties
         self._backgroundColor = QtGui.QColor("#2c2f33")
         self._textColor = QtGui.QColor("#f0f0f0")
         self._borderColor = QtGui.QColor("#44484d")
         self._arrow_image = resourceLoader.getIconPath("thin_arrow_down_64x64.png")
         self._arrowColor = QtGui.QColor("#44484d")
-        # self._arrowColor = QtGui.QColor("#5683d1")
 
         font = QtGui.QFont("Segoe UI", 10)
         self.setFont(font)
@@ -91,7 +91,6 @@ class PlComboBox(QtWidgets.QComboBox):
         center_x = self.width() - margin/2
         center_y = self.height()/2
 
-        # Triangle pointant vers le bas
         points = [
             QtCore.QPointF(center_x - arrow_width / 2, center_y - arrow_height / 3),
             QtCore.QPointF(center_x + arrow_width / 2, center_y - arrow_height / 3),
@@ -104,10 +103,11 @@ class PlComboBox(QtWidgets.QComboBox):
         painter.drawLine(points[2], points[0])
         painter.drawLine(points[1], points[2])
 
-    # Dynamic styling
     def _refreshStyle(self) -> None:
         self.setStyleSheet(self._generate_style())
 
+    # === Style & Property Interface ===
+    
     @QtCore.Property(QtGui.QColor)
     def backgroundColor(self) -> QtGui.QColor:
         return self._backgroundColor

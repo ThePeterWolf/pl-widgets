@@ -20,11 +20,10 @@ class CenterWidget(QtWidgets.QWidget):
         self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
         self.setMinimumSize(300, 200)
 
-        # Load the pixmap (replace this path as needed)
         self._cross_pixmap = QtGui.QPixmap(resourceLoader.getIconPath("close_cross_128x128.png"))
         self._cross_size = 12
         self._cross_margin = 8
-        self._cross_rect = QtCore.QRect()  # placeholder for interaction
+        self._cross_rect = QtCore.QRect()
 
     def paintEvent(self, event):
         painter = QtGui.QPainter(self)
@@ -36,7 +35,6 @@ class CenterWidget(QtWidgets.QWidget):
         radius = self._radius
         header_height = min(24, height)
 
-        # Header arrondi
         top_path = QtGui.QPainterPath()
         top_path.moveTo(0, header_height)
         top_path.lineTo(0, radius)
@@ -50,12 +48,10 @@ class CenterWidget(QtWidgets.QWidget):
         painter.setPen(QtCore.Qt.NoPen)
         painter.drawPath(top_path)
 
-        # Fond du corps
         body_rect = QtCore.QRect(0, header_height, width, height - header_height)
         painter.setBrush(self._bottomColor)
         painter.drawRect(body_rect)
 
-        # Bordure
         pen = QtGui.QPen(self._borderColor)
         pen.setWidth(1)
         painter.setPen(pen)
@@ -63,7 +59,6 @@ class CenterWidget(QtWidgets.QWidget):
         painter.setBrush(QtCore.Qt.NoBrush)
         painter.drawRoundedRect(border_rect, radius, radius)
 
-        # Titre centré
         painter.setPen(QtGui.QColor("white"))
         font = painter.font()
         font.setPointSize(10)
@@ -72,7 +67,6 @@ class CenterWidget(QtWidgets.QWidget):
         text_rect = QtCore.QRectF(0, 0, width, header_height)
         painter.drawText(text_rect, QtCore.Qt.AlignCenter | QtCore.Qt.AlignVCenter, self._title)
 
-        # --- Icône de fermeture ---
         cross_rect = QtCore.QRect(
             width - self._cross_size - self._cross_margin,
             (header_height - self._cross_size) // 2,
@@ -108,12 +102,10 @@ class PlOverlayDialog(QtWidgets.QWidget):
 
         self.setGeometry(self._parent.contentGeometry())
 
-        # Layout principal de l'overlay
         layout = QtWidgets.QVBoxLayout(self)
         layout.setContentsMargins(0, 0, 0, 0)
         layout.setAlignment(QtCore.Qt.AlignCenter)
 
-        # Widget central
         self.center_widget = CenterWidget(title=title, parent=self)
         self.center_widget.closed.connect(self._on_center_widget_closed)
         layout.addWidget(self.center_widget)

@@ -77,8 +77,6 @@ class PlFormWidget(PlStyleMixin, QtWidgets.QWidget):
             self._layout.removeItem(self._stretch_item)
             self._stretch_item = None
 
-    # Public methods / API
-
     def setWidget(self, widget: QtWidgets.QWidget) -> None:
         """
         Sets the content widget. Replaces the existing one if needed.
@@ -123,8 +121,6 @@ class PlFormWidget(PlStyleMixin, QtWidgets.QWidget):
             color (QColor): The text color.
         """
         self._label_widget.setStyleSheet(f"color: {color.name()};")
-
-    # Properties
 
     @QtCore.Property(str)
     def title(self) -> str:

@@ -13,10 +13,10 @@ class PlDialog(PlStyleMixin, PlResizableMixin, QtWidgets.QDialog):
     def __init__(self, parent=None):
         super().__init__(parent)
 
+        # Style properties
         self._backgroundColor = QtGui.QColor("#1f2227")
 
         self.setWindowFlags(QtCore.Qt.FramelessWindowHint | QtCore.Qt.Dialog)
-        # self.setAttribute(QtCore.Qt.WA_TranslucentBackground, False)
 
         self._mainLayout = QtWidgets.QVBoxLayout(self)
         self._mainLayout.setContentsMargins(1, 1, 1, 1)
@@ -30,35 +30,22 @@ class PlDialog(PlStyleMixin, PlResizableMixin, QtWidgets.QDialog):
     
         self._contentArea = QtWidgets.QWidget(self)
         self._contentLayout.addWidget(self._contentArea)
-        # self.contentArea.setAttribute(QtCore.Qt.WA_TransparentForMouseEvents, True)
         self._mainLayout.addLayout(self._contentLayout)
-
-        # self.contentLayout = QtWidgets.QVBoxLayout(self.contentArea)
-        # self.contentLayout.setContentsMargins(20, 20, 20, 20)
-        # self.contentLayout.setSpacing(10)
-
-        shadow = QtWidgets.QGraphicsDropShadowEffect(self)
-        shadow.setBlurRadius(20)
-        shadow.setXOffset(5)
-        shadow.setYOffset(5)
-        shadow.setColor(QtGui.QColor(0, 0, 0, 160))
-        self.setGraphicsEffect(shadow)
 
     def paintEvent(self, event):
         painter = QtGui.QPainter(self)
         painter.setRenderHint(QtGui.QPainter.Antialiasing)
 
         color = self.property("titleBarColor") or self._backgroundColor
-        painter.setPen(QtCore.Qt.NoPen)  # Ne trace pas de bordure
+        painter.setPen(QtCore.Qt.NoPen)
         painter.setBrush(color)
         painter.drawRect(self.rect())
 
-        # Si tu veux un bord clair autour
         pen = QtGui.QPen(QtGui.QColor("#454c58"))
         pen.setWidth(2)
         painter.setPen(pen)
         painter.setBrush(QtCore.Qt.NoBrush)
-        painter.drawRect(self.rect().adjusted(0, 0, 0, 0))  # évite de dépasser
+        painter.drawRect(self.rect().adjusted(0, 0, 0, 0))
 
     def setLayout(self, layout):
         self._contentArea.setLayout(layout)
@@ -84,7 +71,8 @@ class PlDialog(PlStyleMixin, PlResizableMixin, QtWidgets.QDialog):
         global_pos = self.mapToGlobal(QtCore.QPoint(0, title_rect.height()))
         return QtCore.QRect(global_pos, rect.size())
 
-
+    # === Style & Property Interface ===
+    
     @QtCore.Property(QtGui.QColor)
     def backgroundColor(self):
         return self._titleBarColor

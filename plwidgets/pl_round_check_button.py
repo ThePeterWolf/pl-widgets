@@ -45,7 +45,7 @@ class PlRoundCheckButton(QtWidgets.QPushButton, PlStyleMixin):
         self.setFlat(True)
         self.setAttribute(QtCore.Qt.WA_Hover)
 
-        # Default colors
+        # Style properties
         self._borderColor = QtGui.QColor("#5683d1")
         self._textColor = QtGui.QColor("#5683d1")
         self._checkedColor = QtGui.QColor("#5683d1")
@@ -63,17 +63,14 @@ class PlRoundCheckButton(QtWidgets.QPushButton, PlStyleMixin):
         rect = self.rect().adjusted(1, 1, -1, -1)
         radius = rect.height() / 2
 
-        # Background
         if self.isChecked():
             painter.setBrush(self._checkedColor)
         else:
             painter.setBrush(QtCore.Qt.transparent)
 
-        # Border
         painter.setPen(QtGui.QPen(self._borderColor, 2))
         painter.drawRoundedRect(rect, radius, radius)
 
-        # Text
         text_color = self._checkedTextColor if self.isChecked() else self._textColor
 
         font = QtGui.QFont(self._font)
@@ -90,7 +87,7 @@ class PlRoundCheckButton(QtWidgets.QPushButton, PlStyleMixin):
         self._checkedColor = self.getColor("checked-color", self._checkedColor)
         self._checkedTextColor = self.getColor("checked-text-color", self._checkedTextColor)
 
-    # --- Properties ---
+    # === Style & Property Interface ===
 
     @QtCore.Property(QtGui.QColor)
     def borderColor(self) -> QtGui.QColor:

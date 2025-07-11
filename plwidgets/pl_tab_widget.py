@@ -33,7 +33,7 @@ class PlTabWidget(PlStyleMixin, QtWidgets.QWidget):
     def __init__(self, parent=None):
         super().__init__(parent)
 
-        # Style
+        # Style properties
         self._backgroundColor = QtGui.QColor("#1f2227")
         self._selectedColor = QtGui.QColor("#1f2227")
         self._unselectedColor = QtGui.QColor("#26292d")
@@ -77,7 +77,7 @@ class PlTabWidget(PlStyleMixin, QtWidgets.QWidget):
         painter.setBrush(self._backgroundColor)
         painter.drawRoundedRect(self.rect(), self._radius, self._radius)
 
-        # Header path (arrondi haut)
+        # Header path
         r = self._radius
         header_path = QtGui.QPainterPath()
         header_path.moveTo(0, self._header_height)
@@ -171,7 +171,7 @@ class PlTabWidget(PlStyleMixin, QtWidgets.QWidget):
             self.update()
             self.currentChanged.emit(index)
 
-    # === Style Properties ===
+    # === Style & Property Interface ===
 
     @QtCore.Property(QtGui.QColor)
     def backgroundColor(self):

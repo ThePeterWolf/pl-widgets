@@ -29,6 +29,8 @@ class PlFlag(PlStyleMixin, QtWidgets.QWidget):
         super().__init__(parent)
 
         self._title = title
+
+        # Style properties
         self._radius = 4
         self._title_height = 24
         self._topColor = QtGui.QColor("#2c2f33")
@@ -37,12 +39,9 @@ class PlFlag(PlStyleMixin, QtWidgets.QWidget):
         self._alignment = QtCore.Qt.AlignCenter
 
         self.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
-        self.setMinimumHeight(60)
 
-        # Internal layout (with top padding)
         self._layout = QtWidgets.QVBoxLayout()
-        self._layout.setContentsMargins(10, 10, 10, 10)
-        self._layout.addSpacerItem(QtWidgets.QSpacerItem(0, self._title_height))
+        self._layout.setContentsMargins(10, self._title_height + 10, 10, 10)
         super().setLayout(self._layout)
 
     def paintEvent(self, event):
@@ -89,7 +88,21 @@ class PlFlag(PlStyleMixin, QtWidgets.QWidget):
 
         painter.end()
 
+    def _clear_layout(self):
+        while self._layout.count():
+            item = self._layout.takeAt(0)
+            if item.layout():
+                self._clear_layout(item.layout())
+                item.layout().deleteLater()
+            elif item.widget():
+                widget = item.widget()
+                widget.setParent(None)
+                widget.deleteLater()
+            else:
+                del item
+                
     def setLayout(self, layout: QtWidgets.QLayout):
+        self._clear_layout
         self._layout.addLayout(layout)
 
     def setLabelAlignment(self, alignment: QtCore.Qt.AlignmentFlag):

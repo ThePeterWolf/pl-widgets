@@ -64,7 +64,7 @@ class PlCheckButtonGroup(QtWidgets.QWidget, PlStyleMixin):
         self._buttons: list[QtWidgets.QPushButton] = []
         self._selection_mode = self.selectionModeMultiple
 
-        # Style properties (can be overridden via QSS or Python)
+        # Style properties
         self._backgroundColor = QtGui.QColor("#3b3f45")
         self._textColor = QtGui.QColor("#f0f0f0")
         self._borderColor = QtGui.QColor("#44484d")
@@ -181,7 +181,7 @@ class PlCheckButtonGroup(QtWidgets.QWidget, PlStyleMixin):
         self._pressedColor = self.getColor("pressed-color", self._pressedColor)
         self._radius = self.getInt("radius", self._radius)
 
-    # --- Styleable Properties (optional QML/Python access) ---
+    # === Style & Property Interface ===
 
     @QtCore.Property(QtGui.QColor)
     def backgroundColor(self): return self._backgroundColor

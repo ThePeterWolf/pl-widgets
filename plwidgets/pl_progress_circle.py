@@ -30,6 +30,7 @@ class PlProgressCircle(PlStyleMixin, QtWidgets.QWidget):
         self._value = 0
         self._text_visible = True
 
+        # Style properties
         self._progressColor = QtGui.QColor("#e2a010")
         self._completeColor = QtGui.QColor("#2caf3e")
         self._backgroundColor = QtGui.QColor("#dcdde1")
@@ -51,26 +52,21 @@ class PlProgressCircle(PlStyleMixin, QtWidgets.QWidget):
         size = min(width, height)
         margin = self.lineWidth / 2
 
-        # Colors (from properties)
         bg_color = self.backgroundColor
         progress_color = self.progressColor if self._value < 100 else self.completeColor
         text_color = self.textColor
 
-        # Arc geometry
         rect = QtCore.QRectF(margin, margin, size - 2 * margin, size - 2 * margin)
 
-        # Draw background circle
         pen = QtGui.QPen(bg_color, self.lineWidth)
         painter.setPen(pen)
         painter.drawEllipse(rect)
 
-        # Draw progress arc
         pen.setColor(progress_color)
         painter.setPen(pen)
         angle = int(360 * self._value / 100)
         painter.drawArc(rect, -90 * 16, -angle * 16)
 
-        # Draw percentage text
         if self.textVisible:
             font = painter.font()
             font.setPointSize(self._textSize)
@@ -78,7 +74,7 @@ class PlProgressCircle(PlStyleMixin, QtWidgets.QWidget):
             painter.setPen(QtGui.QPen(text_color))
             painter.drawText(QtCore.QRect(0, 0, size, size), QtCore.Qt.AlignCenter, f"{self._value}%")
 
-    # --- Properties ---
+    # === Style & Property Interface ===
 
     @QtCore.Property(int)
     def value(self) -> int:

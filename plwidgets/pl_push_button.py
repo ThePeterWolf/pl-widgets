@@ -6,9 +6,10 @@ class PlPushButton(PlStyleMixin, QtWidgets.QPushButton):
     def __init__(self, text='', parent=None):
         super().__init__(text, parent)
 
-        self._bgColor = QtGui.QColor("#3b3f45")
-        self._hoverColor = self._bgColor.lighter(120)
-        self._pressedColor = self._bgColor.darker(110)
+        # Style properties
+        self._backgroundColor = QtGui.QColor("#3b3f45")
+        self._hoverColor = self._backgroundColor.lighter(120)
+        self._pressedColor = self._backgroundColor.darker(110)
         self._textColor = QtGui.QColor("#f0f0f0")
         self._borderColor = QtGui.QColor("#44484d")
         self._radius = 4
@@ -50,30 +51,29 @@ class PlPushButton(PlStyleMixin, QtWidgets.QPushButton):
         rect = self.rect().adjusted(1, 1, -1, -1)
         radius = self._radius
 
-        # Background color depending on state
         if self._pressed:
             bg = self._pressedColor
         elif self._hover:
             bg = self._hoverColor
         else:
-            bg = self._bgColor
+            bg = self._backgroundColor
 
         painter.setPen(QtGui.QPen(self._borderColor, 1.2))
         painter.setBrush(bg)
         painter.drawRoundedRect(rect, radius, radius)
 
-        # Draw text
         painter.setPen(self._textColor)
         painter.drawText(rect, QtCore.Qt.AlignCenter, self.text())
 
-    # Optional property access
+    # === Style & Property Interface ===
+    
     @QtCore.Property(QtGui.QColor)
     def backgroundColor(self):
-        return self._bgColor
+        return self._backgroundColor
 
     @backgroundColor.setter
     def backgroundColor(self, color: QtGui.QColor):
-        self._bgColor = color
+        self._backgroundColor = color
         self._hoverColor = color.lighter(120)
         self._pressedColor = color.darker(110)
         self.update()

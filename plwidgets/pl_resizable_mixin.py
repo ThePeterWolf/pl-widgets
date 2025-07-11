@@ -35,7 +35,7 @@ class PlResizableMixin:
 
             self.setGeometry(rect)
         else:
-            # Show cursor if near edge
+            
             edge = self._get_resize_edge(event.pos())
             cursor_map = {
                 "left": QtCore.Qt.SizeHorCursor,

@@ -47,6 +47,7 @@ class PLSlider(PlStyleMixin, QtWidgets.QWidget):
 
         self._dragging = False
 
+        # Style properties
         self._backgroundColor = QtGui.QColor("#7d7e82")
         self._thumbColor = QtGui.QColor("#5683d1")
 
@@ -123,7 +124,7 @@ class PLSlider(PlStyleMixin, QtWidgets.QWidget):
         painter.setBrush(thumb_color)
         painter.drawEllipse(QtCore.QPointF(pointer_x, self.height() / 2), self._radius, self._radius)
 
-    # --- QSS Properties ---
+    # === Style & Property Interface ===
     @QtCore.Property(QtGui.QColor)
     def backgroundColor(self) -> QtGui.QColor:
         return self._backgroundColor

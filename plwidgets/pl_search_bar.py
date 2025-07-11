@@ -8,6 +8,7 @@ class PlSearchBar(PlStyleMixin, QtWidgets.QWidget):
     def __init__(self, parent=None):
         super().__init__(parent)
 
+        # Style properties
         self._bgColor = QtGui.QColor("#2c2f33")
         self._bgColorRight = self._bgColor.darker(115)
         self._borderColor = QtGui.QColor("#44484d")
@@ -19,14 +20,13 @@ class PlSearchBar(PlStyleMixin, QtWidgets.QWidget):
 
         self.setFixedHeight(24)
         self.setAttribute(QtCore.Qt.WA_Hover)
-        # Line edit setup
+        
         self._line_edit = QtWidgets.QLineEdit(self)
         self._line_edit.setStyleSheet("background: transparent; border: none; color: white;")
         self._line_edit.setFont(QtGui.QFont("Segoe UI", 10))
         self._line_edit.setAttribute(QtCore.Qt.WA_Hover)
         self._line_edit.installEventFilter(self)
 
-        # Search button setup
         self._search_btn = QtWidgets.QToolButton(self)
         self._search_btn.setCursor(QtCore.Qt.PointingHandCursor)
         self._search_btn.setIcon(QtGui.QIcon(resourceLoader.getIconPath("magnifying_glass_64x64.png")))
@@ -41,7 +41,6 @@ class PlSearchBar(PlStyleMixin, QtWidgets.QWidget):
             }
         """)
 
-        # Layout
         layout = QtWidgets.QHBoxLayout(self)
         layout.setContentsMargins(6, 4, 6, 4)
         layout.setSpacing(0)
@@ -79,25 +78,21 @@ class PlSearchBar(PlStyleMixin, QtWidgets.QWidget):
         radius = self._radius
         btn_width = self._search_btn.width()
 
-        # --- Background: left (input)
         left_rect = QtCore.QRectF(rect.x(), rect.y(), rect.width() - btn_width, rect.height())
         painter.setBrush(self._bgColor)
         painter.setPen(QtCore.Qt.NoPen)
         painter.drawRoundedRect(left_rect, radius, radius)
 
-        # Clip to right side only to avoid double rounding
         clip_rect = QtCore.QRectF(rect.right() - btn_width, rect.y(), btn_width, rect.height())
         path = QtGui.QPainterPath()
         path.addRoundedRect(rect, radius, radius)
         painter.setClipPath(path)
 
-        # --- Background: right (button)
         painter.setBrush(self._bgColorRight)
         painter.drawRect(clip_rect)
 
         painter.setClipping(False)
 
-        # --- Border (one single rounded rect)
         border_color = self._focusBorderColor if self._hasFocus else self._borderColor
         painter.setPen(QtGui.QPen(border_color, 1.5))
         painter.setBrush(QtCore.Qt.NoBrush)
@@ -106,6 +101,8 @@ class PlSearchBar(PlStyleMixin, QtWidgets.QWidget):
     def mousePressEvent(self, event):
         self._line_edit.setFocus()
         super().mousePressEvent(event)
+
+    # === Style & Property Interface ===
 
     @QtCore.Property(QtGui.QColor)
     def backgroundColor(self):

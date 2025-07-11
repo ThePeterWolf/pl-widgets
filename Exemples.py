@@ -1,42 +1,135 @@
-#Code Exemple
 import sys
-from PySide6 import QtWidgets, QtCore
+from PySide6 import QtWidgets, QtCore, QtGui
+
+# Add local pl_widgets path (adjust as needed for production)
+sys.path.append(r"D:\01_PROJECTS\01_PLUI\pl_widgets")
+
 from plwidgets import PlWidgets
 
+def main():
+    app = QtWidgets.QApplication(sys.argv)
 
-window = PlWidgets.PlDialog()
-window.setTitle("Exemple UI")
-layout = QtWidgets.QVBoxLayout()
-window.setLayout(layout)
+    # === Button callbacks ===
+    def increase_progress():
+        progress.incrementValue(5)
 
-check = PlWidgets.PlCheckBox()
-check.setFixedSize(QtCore.QSize(40, 20))
+    def reset_progress():
+        progress.setValue(0)
 
-combo = PlWidgets.PlComboBox()
-combo.addItems(["Option A", "Option B", "Option C"])
+    def show_overlay():
+        overlay.show()
 
-flag = PlWidgets.PLFlag()
+    # === Main Window ===
+    window = PlWidgets.PlDialog()
+    window.setTitle("Hunter UI")
+    layout = QtWidgets.QVBoxLayout()
+    window.setLayout(layout)
 
-slider = PlWidgets.PLSlider()
+    # === Check Button Group ===
+    button_group = PlWidgets.PlCheckButtonGroup()
+    button_group.addButton("Tutu", "tutu")
+    button_group.addButton("Toto", "toto")
+    button_group.addButton("Tata", "tata")
+    button_group.setChecked("tutu", True)
+    button_group.setSelectionMode(PlWidgets.PlCheckButtonGroup.selectionModeSingleForce)
 
-lineedit = PlWidgets.PlLineEdit()
+    # === Round Check Button ===
+    round_chk = PlWidgets.PlRoundCheckButton("Check")
+    round_chk.setFixedSize(100, 40)  
 
-search = PlWidgets.PlSearchBar()
+    # === Flag with form content ===
+    flag = PlWidgets.PlFlag("Flag Name")
+    flag.setLabelAlignment(QtCore.Qt.AlignLeft)
+    flag_content_layout = QtWidgets.QVBoxLayout()
 
-load = PlWidgets.PlLoadingIndicator()
+    check01 = PlWidgets.PlCheckBox()
+    check01.setFixedSize(40, 20)
+    form01 = PlWidgets.PlFormWidget("Checkbox title", widget=check01, squash=True)
+    form01.setLabelColor(QtGui.QColor("#7a7a7a"))
 
-btn = PlWidgets.PlPushButton("Nice Button")
+    check02 = PlWidgets.PlCheckBox()
+    check02.setFixedSize(40, 20)
+    form02 = PlWidgets.PlFormWidget("Checkbox title", widget=check02, squash=True)
+    form02.setLabelColor(QtGui.QColor("#7a7a7a"))
 
-layout.addWidget(check)
-layout.addWidget(combo)
-layout.addWidget(lineedit)
-layout.addWidget(search)
-layout.addWidget(btn)
-layout.addWidget(flag)
-layout.addWidget(slider)
-layout.addWidget(load)
+    flag_content_layout.addWidget(form01)
+    flag_content_layout.addWidget(form02)
+    flag.setLayout(flag_content_layout)
+
+    # === Empty Flag Example ===
+    flag1 = PlWidgets.PlFlag("Flag Name")
+
+    # === Tab Widget with content ===
+    tab_widget = QtWidgets.QWidget()
+    tab_layout = QtWidgets.QVBoxLayout(tab_widget)
+
+    combo = PlWidgets.PlComboBox()
+    combo.addItems(["Option A", "Option B", "Option C"])
+
+    tab_layout.addWidget(combo)
+    tab_layout.addWidget(PlWidgets.PlCheckBox())
+    tab_layout.addWidget(PlWidgets.PlLineEdit())
+
+    tabs = PlWidgets.PlTabWidget()
+    tabs.addTab("Tab 01", tab_widget)
+    tabs.addTab("Tab 02")
+    tabs.addTab("Tab 03")
+
+    # === Circular Progress ===
+    progress = PlWidgets.PlProgressCircle()
+    progress.setFixedSize(50, 50)
+    progress.setStyleSheet("""
+        PlProgressCircle {
+            progress-color: #f39c12;
+            complete_color: #27ae60;
+            background-color: #2f3640;
+            text-color: #44484d;
+            line-width: 8;
+            text-visible: true;
+            text_size: 8;
+        }
+    """)
+
+    progress_btn = PlWidgets.PlPushButton("Increase")
+    progress_btn.clicked.connect(increase_progress)
+
+    progress_reset_btn = PlWidgets.PlPushButton("Reset")
+    progress_reset_btn.clicked.connect(reset_progress)
+
+    # === Slider ===
+    slider = PlWidgets.PLSlider()
+    slider.enableStep(10)
+
+    # === Search Bar ===
+    search = PlWidgets.PlSearchBar()
+
+    # === Overlay Button ===
+    btn_overlay = PlWidgets.PlPushButton("Overlay Popup")
+    btn_overlay.clicked.connect(show_overlay)
+
+    # === Overlay Dialog ===
+    overlay = PlWidgets.PlOverlayDialog(window)
+
+    # === Loading Indicator ===
+    load = PlWidgets.PlLoadingIndicator()
+
+    # === Assemble main layout ===
+    layout.addWidget(search)
+    layout.addWidget(btn_overlay)
+    layout.addWidget(button_group)
+    layout.addWidget(round_chk)
+    layout.addWidget(flag1)
+    layout.addWidget(flag)
+    layout.addWidget(tabs)
+    layout.addWidget(slider)
+    layout.addWidget(progress)
+    layout.addWidget(progress_btn)
+    layout.addWidget(progress_reset_btn)
+    layout.addWidget(load)
+
+    window.show()
+    sys.exit(app.exec())
 
 
-app = QtWidgets.QApplication(sys.argv)
-window.show()
-sys.exit(app.exec())
+if __name__ == "__main__":
+    main()

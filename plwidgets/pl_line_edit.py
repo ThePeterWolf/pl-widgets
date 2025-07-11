@@ -10,7 +10,9 @@ class PlLineEdit(PlStyleMixin, QtWidgets.QWidget):
     def __init__(self, parent=None):
         super().__init__(parent)
 
-        self._bgColor = QtGui.QColor("#2c2f33")
+        # Style properties
+
+        self._backgroundColor = QtGui.QColor("#2c2f33")
         self._borderColor = QtGui.QColor("#44484d")
         self._textColor = QtGui.QColor("#f0f0f0")
         self._radius = 4
@@ -80,20 +82,22 @@ class PlLineEdit(PlStyleMixin, QtWidgets.QWidget):
         rect = self.rect().adjusted(1, 1, -1, -1)
 
         # Background
-        painter.setBrush(self._bgColor)
+        painter.setBrush(self._backgroundColor)
         painter.setPen(QtGui.QPen(self._focusBorderColor if self._hasFocus else self._borderColor, 1.5))
         painter.drawRoundedRect(rect, self._radius, self._radius)
 
         # Call base to draw text
         super().paintEvent(event)
 
+    # === Style & Property Interface ===
+    
     @QtCore.Property(QtGui.QColor)
     def backgroundColor(self):
-        return self._bgColor
+        return self._backgroundColor
 
     @backgroundColor.setter
     def backgroundColor(self, color: QtGui.QColor):
-        self._bgColor = color
+        self._backgroundColor = color
         self.update()
 
     @QtCore.Property(QtGui.QColor)

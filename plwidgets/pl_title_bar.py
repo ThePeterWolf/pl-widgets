@@ -104,6 +104,8 @@ class PlTitleBar(QtWidgets.QWidget):
         painter.setFont(font)
         painter.drawText(self.rect(), QtCore.Qt.AlignCenter, self._title)
 
+    # === Style & Property Interface ===
+    
     @QtCore.Property(QtGui.QColor)
     def titleBarColor(self):
         return self._titleBarColor
