@@ -1,9 +1,5 @@
 import sys
 from PySide6 import QtWidgets, QtCore, QtGui
-
-# Add local pl_widgets path (adjust as needed for production)
-sys.path.append(r"D:\01_PROJECTS\01_PLUI\pl_widgets")
-
 from plwidgets import PlWidgets
 
 def main():
