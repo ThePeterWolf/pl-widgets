@@ -1,13 +1,45 @@
 # `pl_loading_indicator`
 
-        **Class:** `PlLoadingIndicator`
+**Class:** `PlLoadingIndicator`
 
-        ## Public Methods
-        - **rotate**()
-- **paintEvent**(_)
-- **color**()
-- **color**(value)
-- **thickness**()
-- **thickness**(value)
-- **speed**()
-- **speed**(value)
+## Public Methods
+
+### `rotate(None)`
+**Returns:** `None`
+
+_No docstring_
+
+### `paintEvent(_)`
+**Returns:** `None`
+
+_No docstring_
+
+### `color(None)`
+**Returns:** `None`
+
+_No docstring_
+
+### `color(value)`
+**Returns:** `None`
+
+_No docstring_
+
+### `thickness(None)`
+**Returns:** `None`
+
+_No docstring_
+
+### `thickness(value)`
+**Returns:** `None`
+
+_No docstring_
+
+### `speed(None)`
+**Returns:** `None`
+
+_No docstring_
+
+### `speed(value)`
+**Returns:** `None`
+
+_No docstring_

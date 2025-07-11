@@ -1,23 +1,95 @@
 # `pl_slider`
 
-        **Class:** `PLSlider`
+**Class:** `PLSlider`
 
-        ## Public Methods
-        - **enableStep**(step_size)
-- **setRange**(minimum, maximum)
-- **setValue**(value)
-- **value**()
-- **mousePressEvent**(event)
-- **mouseMoveEvent**(event)
-- **mouseReleaseEvent**(event)
-- **paintEvent**(_)
-- **backgroundColor**()
-- **backgroundColor**(color)
-- **thumbColor**()
-- **thumbColor**(color)
-- **minimum**()
-- **minimum**(value)
-- **maximum**()
-- **maximum**(value)
-- **value_**()
-- **value_**(val)
+## Public Methods
+
+### `enableStep(step_size)`
+**Returns:** `None`
+
+Enable stepped movement of the slider.
+
+### `setRange(minimum, maximum)`
+**Returns:** `None`
+
+_No docstring_
+
+### `setValue(value)`
+**Returns:** `None`
+
+_No docstring_
+
+### `value(None)`
+**Returns:** `int`
+
+_No docstring_
+
+### `mousePressEvent(event)`
+**Returns:** `None`
+
+_No docstring_
+
+### `mouseMoveEvent(event)`
+**Returns:** `None`
+
+_No docstring_
+
+### `mouseReleaseEvent(event)`
+**Returns:** `None`
+
+_No docstring_
+
+### `paintEvent(_)`
+**Returns:** `None`
+
+_No docstring_
+
+### `backgroundColor(None)`
+**Returns:** `QtGui.QColor`
+
+_No docstring_
+
+### `backgroundColor(color)`
+**Returns:** `None`
+
+_No docstring_
+
+### `thumbColor(None)`
+**Returns:** `QtGui.QColor`
+
+_No docstring_
+
+### `thumbColor(color)`
+**Returns:** `None`
+
+_No docstring_
+
+### `minimum(None)`
+**Returns:** `int`
+
+_No docstring_
+
+### `minimum(value)`
+**Returns:** `None`
+
+_No docstring_
+
+### `maximum(None)`
+**Returns:** `int`
+
+_No docstring_
+
+### `maximum(value)`
+**Returns:** `None`
+
+_No docstring_
+
+### `value_(None)`
+**Returns:** `int`
+
+_No docstring_
+
+### `value_(val)`
+**Returns:** `None`
+
+_No docstring_

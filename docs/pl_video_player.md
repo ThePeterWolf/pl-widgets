@@ -1,11 +1,35 @@
 # `pl_video_player`
 
-        **Class:** `PLVideoPlayer`
+**Class:** `PLVideoPlayer`
 
-        ## Public Methods
-        - **open_file**()
-- **toggle_play**()
-- **seek**(value)
-- **update_position**(pos)
-- **update_duration**(duration)
-- **update_time_label**(pos)
+## Public Methods
+
+### `open_file(None)`
+**Returns:** `None`
+
+_No docstring_
+
+### `toggle_play(None)`
+**Returns:** `None`
+
+_No docstring_
+
+### `seek(value)`
+**Returns:** `None`
+
+_No docstring_
+
+### `update_position(pos)`
+**Returns:** `None`
+
+_No docstring_
+
+### `update_duration(duration)`
+**Returns:** `None`
+
+_No docstring_
+
+### `update_time_label(pos)`
+**Returns:** `None`
+
+_No docstring_
