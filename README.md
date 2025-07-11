@@ -6,7 +6,7 @@
 
 ## 🖼 UI Preview
 
-![Demo interface](assets/preview.png)
+![Demo interface](assets/pl_widgets_preview_01.png)
 
 ---
 
