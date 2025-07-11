@@ -10,7 +10,6 @@ from .pl_push_button import PlPushButton
 from .pl_combo_box import PlComboBox
 from .pl_flag import PlFlag
 from .pl_slider import PLSlider
-from .pl_video_player import PLVideoPlayer
 from .pl_loading_indicator import PlLoadingIndicator
 from .pl_form_widget import PlFormWidget
 from .pl_check_button_group import PlCheckButtonGroup
@@ -35,7 +34,6 @@ class PlWidgets:
     PlComboBox: Type[PlComboBox] = PlComboBox
     PlFlag: Type[PlFlag] = PlFlag
     PLSlider: Type[PLSlider] = PLSlider
-    PLVideoPlayer: Type[PLVideoPlayer] = PLVideoPlayer
     PlLoadingIndicator: Type[PlLoadingIndicator] = PlLoadingIndicator
     PlFormWidget: Type[PlFormWidget] = PlFormWidget
     PlCheckButtonGroup: Type[PlCheckButtonGroup] = PlCheckButtonGroup
