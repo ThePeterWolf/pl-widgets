@@ -49,17 +49,17 @@ pip install PySide6
 
 ```python
 from PySide6 import QtWidgets
-from plwidgets import PLSlider, PlCheckBox, PlDialog
+from plwidgets import PlWidgets
 
 app = QtWidgets.QApplication([])
 
-window = PlDialog()
+window = PlWidgets.PlDialog()
 layout = QtWidgets.QVBoxLayout(window)
 
-slider = PLSlider()
+slider = PlWidgets.PLSlider()
 slider.enableStep(10)
 
-toggle = PlCheckBox()
+toggle = PlWidgets.PlCheckBox()
 toggle.setChecked(True)
 
 layout.addWidget(slider)
