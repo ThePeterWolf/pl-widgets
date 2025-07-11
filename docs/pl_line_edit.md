@@ -4,37 +4,12 @@
 
 ## Public Methods
 
-### `eventFilter(watched, event)`
-**Returns:** `None`
-
-_No docstring_
-
-### `enterEvent(event)`
-**Returns:** `None`
-
-_No docstring_
-
-### `leaveEvent(event)`
-**Returns:** `None`
-
-_No docstring_
-
-### `mousePressEvent(event)`
-**Returns:** `None`
-
-_No docstring_
-
 ### `focusInEvent(event)`
 **Returns:** `None`
 
 _No docstring_
 
 ### `focusOutEvent(event)`
-**Returns:** `None`
-
-_No docstring_
-
-### `paintEvent(event)`
 **Returns:** `None`
 
 _No docstring_

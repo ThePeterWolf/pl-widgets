@@ -14,16 +14,6 @@ _No docstring_
 
 _No docstring_
 
-### `paintEvent(_)`
-**Returns:** `None`
-
-Handle the paint event to draw the toggle switch.
-
-### `mousePressEvent(event)`
-**Returns:** `None`
-
-_No docstring_
-
 ### `toggle(None)`
 **Returns:** `None`
 

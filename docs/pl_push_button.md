@@ -4,31 +4,6 @@
 
 ## Public Methods
 
-### `enterEvent(event)`
-**Returns:** `None`
-
-_No docstring_
-
-### `leaveEvent(event)`
-**Returns:** `None`
-
-_No docstring_
-
-### `mousePressEvent(event)`
-**Returns:** `None`
-
-_No docstring_
-
-### `mouseReleaseEvent(event)`
-**Returns:** `None`
-
-_No docstring_
-
-### `paintEvent(event)`
-**Returns:** `None`
-
-_No docstring_
-
 ### `backgroundColor(None)`
 **Returns:** `None`
 

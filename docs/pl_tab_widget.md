@@ -14,26 +14,6 @@ _No docstring_
 
 _No docstring_
 
-### `paintEvent(event)`
-**Returns:** `None`
-
-_No docstring_
-
-### `mouseMoveEvent(event)`
-**Returns:** `None`
-
-_No docstring_
-
-### `leaveEvent(event)`
-**Returns:** `None`
-
-_No docstring_
-
-### `mousePressEvent(event)`
-**Returns:** `None`
-
-_No docstring_
-
 ### `currentIndex(None)`
 **Returns:** `None`
 

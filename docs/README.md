@@ -1,4 +1,4 @@
-# plwidgets API Reference
+# plwidgets API Reference (Filtered)
 
 - [pl_check_button_group](pl_check_button_group.md)
 - [pl_checkbox](pl_checkbox.md)
@@ -8,10 +8,8 @@
 - [pl_form_widget](pl_form_widget.md)
 - [pl_line_edit](pl_line_edit.md)
 - [pl_loading_indicator](pl_loading_indicator.md)
-- [pl_overlay_dialog](pl_overlay_dialog.md)
 - [pl_progress_circle](pl_progress_circle.md)
 - [pl_push_button](pl_push_button.md)
-- [pl_resizable_mixin](pl_resizable_mixin.md)
 - [pl_round_check_button](pl_round_check_button.md)
 - [pl_search_bar](pl_search_bar.md)
 - [pl_slider](pl_slider.md)

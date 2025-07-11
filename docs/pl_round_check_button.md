@@ -4,11 +4,6 @@
 
 ## Public Methods
 
-### `paintEvent(event)`
-**Returns:** `None`
-
-_No docstring_
-
 ### `borderColor(None)`
 **Returns:** `QtGui.QColor`
 

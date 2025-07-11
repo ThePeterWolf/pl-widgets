@@ -4,11 +4,6 @@
 
 ## Public Methods
 
-### `paintEvent(event)`
-**Returns:** `None`
-
-_No docstring_
-
 ### `setLayout(layout)`
 **Returns:** `None`
 

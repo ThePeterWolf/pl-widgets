@@ -9,11 +9,6 @@
 
 _No docstring_
 
-### `paintEvent(_)`
-**Returns:** `None`
-
-_No docstring_
-
 ### `value(None)`
 **Returns:** `int`
 

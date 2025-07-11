@@ -4,26 +4,6 @@
 
 ## Public Methods
 
-### `mousePressEvent(event)`
-**Returns:** `None`
-
-_No docstring_
-
-### `mouseMoveEvent(event)`
-**Returns:** `None`
-
-_No docstring_
-
-### `mouseReleaseEvent(event)`
-**Returns:** `None`
-
-_No docstring_
-
-### `paintEvent(event)`
-**Returns:** `None`
-
-_No docstring_
-
 ### `titleBarColor(None)`
 **Returns:** `None`
 

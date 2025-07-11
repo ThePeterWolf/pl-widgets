@@ -24,26 +24,6 @@ _No docstring_
 
 _No docstring_
 
-### `mousePressEvent(event)`
-**Returns:** `None`
-
-_No docstring_
-
-### `mouseMoveEvent(event)`
-**Returns:** `None`
-
-_No docstring_
-
-### `mouseReleaseEvent(event)`
-**Returns:** `None`
-
-_No docstring_
-
-### `paintEvent(_)`
-**Returns:** `None`
-
-_No docstring_
-
 ### `backgroundColor(None)`
 **Returns:** `QtGui.QColor`
 
